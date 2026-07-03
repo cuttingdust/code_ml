@@ -13,7 +13,11 @@
 
 import pandas as pd   # 读取远程 CSV 文本
 import numpy as np    # 数组拼接与切片
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 
+# TODO 1.准备数据
+# todo 1.1 获取原始数据
 # 波士顿房价数据的官方原始地址（卡内基梅隆大学统计系）
 data_url = "http://lib.stat.cmu.edu/datasets/boston"
 
@@ -56,3 +60,14 @@ print(f"标签数组形状: {target.shape}")     # 预期 (506,)
 print(f"第1条样本的13个特征: {data[0]}")
 print(f"第1条样本的房价: {target[0]}")
 print(f"全部房价标签: {target}")
+
+print("=" * 50)
+
+# todo 1.2 数据切割
+X_train, X_test , Y_train, Y_test = train_test_split(data, target, test_size=0.2, random_state=42)
+# print("=" * 50)
+
+# todo 1.3 特征的标准化数据
+ss = StandardScaler()
+new_X_train =  ss.fit(X_train)
+new_X_test = ss.transform(X_test) # 测试集只能用transform()转换,因为前面训练集已经训练了模型计算了相关内容
