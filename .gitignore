@@ -21,3 +21,44 @@ trt/
 
 # 本地用户数据
 user_info.json
+
+# 编辑器
+.vscode/
+*.swp
+
+# Jupyter
+.ipynb_checkpoints/
+
+# 测试、检查与覆盖率缓存
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# 构建与打包产物
+build/
+dist/
+*.egg-info/
+
+# 日志与临时文件
+*.log
+*.tmp
+*.temp
+
+# 机器学习输出与模型权重
+checkpoints/
+runs/
+outputs/
+wandb/
+mlruns/
+tensorboard/
+*.ckpt
+*.onnx
+*.pt
+*.pth
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+Desktop.ini
